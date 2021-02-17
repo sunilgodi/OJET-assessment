@@ -1,0 +1,64 @@
+<!--
+  Copyright (c) 2015, 2021, Oracle and/or its affiliates.
+  Licensed under The Universal Permissive License (UPL), Version 1.0
+  as shown at https://oss.oracle.com/licenses/upl/
+
+-->
+<oj-action-card style="width: 100%;" id="accountDet" class="oj-flex-item oj-sm-margin-12x-top" on-oj-action="[[]]">
+  <div class="oj-flex oj-sm-12 oj-flex-init">
+    <div class="oj-sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold oj-sm-margin-5x-start">
+        Account name:
+      </span>
+    </div>
+    <div class="oj-sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold ">
+        <oj-bind-text value="[[$properties.accountName]]">
+        </oj-bind-text>
+      </span>
+    </div>
+    <div class="oj-sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold oj-sm-margin-5x-start">
+        Account Status:
+      </span>
+    </div>
+    <div class="oj-sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold">
+        <oj-bind-text value="[[$properties.accountStatus]]">
+        </oj-bind-text>
+      </span>
+    </div>
+    <div class="oj-sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold oj-sm-margin-5x-start">
+        Last visit:
+      </span>
+    </div>
+    <div class="oj-sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold">
+        <oj-bind-text value="[[$properties.lastVisit]]">
+        </oj-bind-text>
+      </span>
+    </div>
+    <div class="oj-sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold oj-sm-margin-5x-start">
+        Next visit:
+      </span>
+    </div>
+    <div class="oj- sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold">
+        <oj-bind-text value="[[$properties.nextVisit]]">
+        </oj-bind-text>
+      </span>
+    </div>
+    <div class="oj-sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold oj-sm-margin-5x-start">
+        Organization status:
+      </span>
+    </div>
+    <div class="oj-sm-margin-5x-vertical oj-flex-item oj-md-6 oj-sm-6 oj-sm-align-self-center ">
+      <span class="oj-typography-bold">
+        <oj-bind-text value="[[$properties.orgStatus]]">
+        </oj-bind-text>
+      </span>
+    </div>
+</oj-action-card>

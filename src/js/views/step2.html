@@ -1,0 +1,109 @@
+<div class="oj-applayout-fixed-top">
+    <!--
+     ** Oracle JET V10.0.0 hybrid mobile application header pattern.
+     ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+     ** more information on how to use this pattern.
+  -->
+    <header role="banner" class="oj-hybrid-applayout-header">
+        <oj-module style="width: 100%;" config="[[subHeaderConfig]]"></oj-module>
+    </header>
+</div>
+<div class="bodyContent" style="margin-top: 120px;">
+    <!--------------PRIMARY DATA FORM--------->
+    <span class="oj-typography-title-4">Primary Address</span>
+    <div class="oj-flex oj-flex-item">
+        <div class="oj-sm-11 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="addr1">Adress line 1</oj-label>
+            <oj-input-text   validators='[[addr1Validator]]' length.max="20"
+            value="{{addr1}}" id="addr1" required placeholder="Address line 1" label-edge="inside"></oj-input-text>
+        </div>
+        <div class="oj-sm-11 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="addr2">Adress line 2</oj-label>
+            <oj-input-text   validators='[[addr2Validator]]' length.max="20"
+            value="{{addr2}}" id="addr2" required  placeholder="Address line 2" label-edge="inside"></oj-input-text>
+        </div>
+        <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="country">Country</oj-label>
+            <oj-select-single id="country" required data="[[countryListSource]]" value="{{selectedCountry}}">
+            </oj-select-single>
+        </div>
+        <div class="oj-sm-5 oj-md-5 oj-lg-5 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="pcode" >Postal code</oj-label>
+            
+            <oj-input-number id="pcode" value="{{pcode}}" 
+              validators='[[pcodeValidator]]' length.max="6"></oj-input-number>
+        </div>
+        <div class="oj-sm-11 oj-md-11 oj-lg-11 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="state">State</oj-label>
+            <oj-select-single id="state" data="[[stateListSource]]" value="{{selectedState}}">
+            </oj-select-single>
+        </div>
+
+        <div class="oj-sm-6 oj-sm-padding-5x-top oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <span class="oj-typography-body-xl">GPS coordinates</span>
+        </div>
+        <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-sm-padding-5x-top oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-button on-oj-action="[[getCurrentPos]]" chroming='borderless'> <span  class="oj-typography-body-4 oj-primary-color">
+                get from GPS
+                <span class="oj-ux-ico-location-pin"></span>
+            </span></oj-button>
+        </div>
+
+
+        <!---------------lat and long gps-------------->
+        <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="lat" >Latitude</oj-label>
+            
+            <oj-input-text id="lat" value="{{lat}}" 
+               required length.max="6"></oj-input-text>
+        </div>
+
+        <div class="oj-sm-3 oj-md-3 oj-lg-3 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label>&nbsp;</oj-label>
+            <oj-select-single id="lat" data="[[latDirListSource]]" value="{{selectedLatitude}}">
+            </oj-select-single>
+        </div>
+        <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="lang" >Langitude</oj-label>
+            
+            <oj-input-text id="lang" value="{{lang}}" 
+               length.max="6" ></oj-input-text>
+        </div>
+
+        <div class="oj-sm-3 oj-md-3 oj-lg-3 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label>&nbsp;</oj-label>
+            <oj-select-single id="lat" data="[[langDirListSource]]" value="{{selectedLongitude}}">
+            </oj-select-single>
+        </div>
+        <span class="oj-typography-body-xl">Address type</span>
+        <div class="oj-sm-11 oj-md-11 oj-lg-11 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-radioset id="radiosetBasicDemoId" label-hint="" label-edge="provided" value="{{currentAddrType}}">
+               
+                <oj-bind-for-each data="[[addrOptions]]">
+                  <template>
+                    <oj-option  value="[[$current.data.value]]">
+                      <oj-bind-text value="[[$current.data.value]]"></oj-bind-text>
+                    </oj-option>
+                  </template>
+                </oj-bind-for-each>
+              </oj-radioset>
+        </div>
+
+        
+
+    </div>
+    <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-around">
+
+        <div class="oj-flex-item ">     
+            <oj-button  chroming='outlined' on-oj-action="[[goBack]]">
+                Cancel
+            </oj-button >
+        </div>
+        <div class="oj-flex-item oj-sm-padding-5x-end" >
+            <oj-button class="ojet-btn-color oj-color-invert" on-oj-action="[[gotoStep3]]" chroming='outlined'>
+                Next
+            </oj-button>
+        </div>
+
+    </div>
+</div>

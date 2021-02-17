@@ -1,0 +1,188 @@
+<!--
+ Copyright (c) 10014, 100101, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-applayout-fixed-top">
+  <!--
+   ** Oracle JET V10.0.0 hybrid mobile application header pattern.
+   ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+   ** more information on how to use this pattern.
+-->
+  <header role="banner" class="oj-hybrid-applayout-header">
+    <oj-module style="width: 100%;" config="[[headerConfig]]"></oj-module>
+  </header>
+  <br>
+  <div>
+    <div class="demo-content oj-flex-item oj-sm-align-items-end">
+      <div class="oj-flex oj-flex-init">
+        <div class="oj-flex-item oj-md-6 oj-sm-5" style="text-align: center;">
+          <span style="font-weight:bold;">
+            <oj-bind-text value="[[length]]">
+
+            </oj-bind-text>&nbsp;Active Accounts
+          </span>
+        </div>
+        <div class="oj-flex-item oj-md-6 oj-sm-6" style="text-align: right;">
+
+
+          <span on-click="[[openListener]]" class="oj-icon-color-secondary oj-ux-icon-size-6x  oj-ux-ico-filter-2">
+
+          </span>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="oj-applayout-fixed-bottom oj-flex-bar oj-sm-justify-content-flex-end oj-sm-margin-11x-bottom oj-sm-padding-6x-bottom oj-sm-padding-6x-end">
+    <oj-button class="oj-icon-color-secondary oj-color-invert" id="floatingBtn" on-oj-action="[[addAccounts]]">
+      <span slot='startIcon' class="oj-ux-ico-plus oj-color-invert"></span>
+      Add Account
+    </oj-button>
+  </div>
+
+  <br>
+  <div class="demo-content oj-flex-item">
+    <div class="oj-flex oj-flex-init">
+      <div class="oj-flex-item oj-md-6 oj-sm-12">
+        <oj-input-text style="width: 90%;" id="filter" label-hint="Filter" label-edge="inside"
+          placeholder="Type to filter" on-raw-value-changed="[[handleValueChanged]]" value="{{filter}}"
+          clear-icon="conditional">
+        </oj-input-text>
+      </div>
+    </div>
+    <br>
+
+    <div class="oj-flex oj-flex-init">
+      <div class="oj-flex-item oj-md-4 oj-sm-5 oj-sm-align-self-center oj-sm-padding-1x">
+        <span>
+          <oj-bind-text value="Account Name "></oj-bind-text>
+        </span>
+      </div>
+      <div class="oj-flex-item oj-md-4 oj-sm-3 oj-sm-align-self-center oj-sm-padding-1x">
+        <span>
+          <oj-bind-text value="Last visit"></oj-bind-text>
+        </span>
+      </div>
+      <div class="oj-flex-item oj-md-4 oj-sm-3 oj-sm-align-self-center oj-sm-padding-1x">
+        <span>
+          <oj-bind-text value="Next visit"></oj-bind-text>
+        </span>
+      </div>
+      <div class="oj-flex-item oj-md-4 oj-sm-1 oj-sm-align-self-center oj-sm-padding-1x">
+
+      </div>
+    </div>
+
+
+
+    <oj-list-view id="activitiesList" data="[[activityDataProvider]]">
+      <template slot="itemTemplate">
+
+
+
+        <div class="oj-flex oj-flex-init">
+          <div class="oj-flex-item oj-md-4 oj-sm-5 oj-sm-align-self-center oj-sm-padding-10x-end">
+            <span class="oj-typography-bold">
+              <oj-bind-text value="[[$current.data.name]]"></oj-bind-text>
+            </span>
+          </div>
+
+          <div class="oj-flex-item oj-md-4 oj-sm-3 oj-sm-align-items-center" style="text-align: center;">
+            <span class="oj-typography-subheading-sm">
+              <oj-bind-text class="oj-typography-subheading-sm" value="[[$current.data.lmonth == null ? 'NA':$current.data.lmonth]]"></oj-bind-text>
+              <oj-bind-text value="[[$current.data.lday]]"></oj-bind-text>
+            </span>
+            <br>
+            <span class="oj-sm-padding-2x-start">
+              <oj-bind-text value="[[$current.data.lyear]]"></oj-bind-text>
+            </span>
+          </div>
+
+          <div class="oj-flex-item oj-md-4 oj-sm-3 oj-sm-align-items-center" style="text-align: center;">
+            <span class="oj-typography-subheading-sm">
+              <oj-bind-text value="[[$current.data.nmonth == null ? 'NA':$current.data.nmonth]]"></oj-bind-text>
+              <oj-bind-text value="[[$current.data.nday]]"></oj-bind-text>
+            </span>
+            <br>
+            <span class="oj-sm-padding-2x-start">
+              <oj-bind-text value="[[$current.data.nyear]]"></oj-bind-text>
+            </span>
+
+          </div>
+          <div class="oj-flex-item oj-md-4 oj-sm-1 oj-sm-align-self-center">
+            <oj-button on-oj-action="[[function(){showDetails(
+              $current.data.name,
+              $current.data.lmonth,
+              $current.data.lday,
+              $current.data.lyear,
+              $current.data.nmonth,
+              $current.data.nday,
+              $current.data.nyear,
+              $current.data.status,
+              $current.data.orgStatus
+              )}]]" chroming='borderless'>
+              <span on-click="[[]]" class="oj-ux-ico-arrow-right oj-typography-body-1"></span>
+            </oj-button>
+
+          </div>
+
+        </div>
+        <div class="oj-divider-bottom">
+  
+        </div>
+      </template>
+
+    </oj-list-view>
+
+  </div>
+
+</div>
+
+<oj-popup style="width: 95%;height: 770px;" id="popup1" class="demo-popup" tail="simple" position.my.horizontal="center"
+  position.my.vertical="top" position.at.horizontal="center" position.at.vertical="top" position.of="window"
+  position.offset.y="10" modality="modal" on-oj-animate-start="[[startAnimationListener]]">
+  <div class="demo-popup-body">
+    <div class="demo-popup-header">
+      <div class="oj-flex oj-flex-init">
+        <div class="oj-flex-item oj-md-4 oj-sm-4">
+          <h2><span on-click="[[closeFilter]]" class="oj-ux-ico-close oj-icon-color-danger"></span></h2>
+        </div>
+        <div class="oj-flex-item oj-md-6 oj-sm-6">
+          <h3><span>Filter</span></h3>
+        </div>
+      </div>
+
+    </div>
+    <div class="demo-popup-content">
+      <oj-radioset id="radiosetBasicDemoId" label-hint="Select status" label-edge="provided" value="{{currentStatus}}">
+        <oj-bind-for-each data="[[statusOptions]]">
+          <template>
+            <oj-option :style.color="[[$current.data.value == currentStatus ? 'black':'blue']]"
+              value="[[$current.data.value]]">
+              <oj-bind-text value="[[$current.data.status]]"></oj-bind-text>
+            </oj-option>
+          </template>
+        </oj-bind-for-each>
+      </oj-radioset>
+    </div>
+    <br>
+    <div class="demo-popup-footer">
+
+      <div class="oj-flex">
+        <div class="oj-flex-item oj-sm-align-self-center" style="text-align: center;">
+          <oj-button id="btnCancel" on-oj-action="[[clearFilters]]">
+            Clear all
+          </oj-button>
+        </div>
+        <div class="oj-flex-item" style="text-align: center;">
+          <oj-button id="btnCancel" on-oj-action="[[applyFilters]]">
+            Apply filter
+          </oj-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</oj-popup>

@@ -1,0 +1,17 @@
+/* This file is where css selectors for the component go.
+   There will be hard coded properties and properties controlled by variables, for example
+
+   show-details .show-details-value-text {
+   color: var(--show-details-value-text-color);
+   display: inline-block;
+	 }
+*/
+
+show-details:not(.oj-complete){
+  visibility: hidden;
+}
+
+show-details{
+	min-height: 50px;
+	width: 50px;
+}

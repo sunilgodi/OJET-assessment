@@ -1,0 +1,128 @@
+<div class="oj-applayout-fixed-top">
+    <!--
+     ** Oracle JET V10.0.0 hybrid mobile application header pattern.
+     ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+     ** more information on how to use this pattern.
+  -->
+    <header role="banner" class="oj-hybrid-applayout-header">
+        <oj-module style="width: 100%;" config="[[subHeaderConfig]]"></oj-module>
+    </header>
+</div>
+<div class="bodyContent " style="margin-top: 120px;">
+    
+    <div class="oj-flex oj-flex-item oj-sm-margin-5x-top">
+        <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <span class="oj-typography-title-5">Primary Address</span>
+        </div>
+        <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-button on-oj-action="[[pickContact]]" chroming='borderless'> <span  class="oj-primary-color oj-typography-body-4">Select from existing
+        
+                <span class="oj-ux-ico-contacts"></span>
+            </span></oj-button>
+        </div>
+
+        <div class="oj-sm-11 oj-md-11 oj-lg-11 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="contactType">Contact type</oj-label>
+            <oj-select-single id="contactType" required data="[[contactTypeSource]]" value="{{selectedcontType}}">
+            </oj-select-single>
+        </div>
+        <div class="oj-sm-4 oj-md-4 oj-lg-4 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="prefix">Prefix</oj-label>
+            <oj-select-single id="prefix" required data="[[prefixSource]]" value="{{selectedPrefix}}">
+            </oj-select-single>
+        </div>
+
+        <div class="oj-sm-11 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="fname">First name</oj-label>
+            <oj-input-text   validators='[[fnameValidator]]' length.max="10"
+            value="{{fname}}" id="fname" required placeholder="First name" label-edge="inside"></oj-input-text>
+        </div>
+
+        <div class="oj-sm-11 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="lname">Last name</oj-label>
+            <oj-input-text   validators='[[lnameValidator]]' length.max="6"
+            value="{{lname}}" id="lname" required placeholder="Last name" label-edge="inside"></oj-input-text>
+        </div>
+
+        <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="contactRole">Select contact role</oj-label>
+            <oj-select-single id="contactRole" required data="[[contactRoleSource]]" value="{{selectedcontactRole}}">
+            </oj-select-single>
+        </div>
+        <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            &nbsp;
+        </div>
+
+        <div class="oj-sm-4 oj-md-4 oj-lg-4 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="cc">Telephone</oj-label>
+            <oj-select-single id="cc" required data="[[ccSource]]" value="{{selectedCC}}">
+            </oj-select-single>
+        </div>
+        <div class="oj-sm-7 oj-md-7 oj-lg-7 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="teleNumber"></oj-label>
+            <oj-input-text   validators='[[teleNumberValidator]]' length.max="10"
+            value="{{teleNumber}}" id="teleNumber" required placeholder="Telephone" label-edge="inside"></oj-input-text>
+        </div>
+
+        <div class="oj-sm-11 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <oj-label class="oj-typography-bold" for="email">Email Id</oj-label>
+            <oj-input-text   validators='[[emailValidator]]' length.max="20"
+            value="{{email}}" id="email" required placeholder="Email Id" label-edge="inside"></oj-input-text>
+        </div>
+        <span class="oj-typography-subtitle-4">Preferred method of contact</span>
+
+        <div class="oj-sm-11 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <div class="oj-sm-11 oj-md-11 oj-lg-11 oj-flex-item oj-sm-padding-2x-horizontal oj-de">
+                <oj-radioset id="radiosetBasicDemoId" label-hint="" label-edge="provided" value="{{preferredCont}}">
+                   
+                    <oj-bind-for-each data="[[preferredContOptions]]">
+                      <template >
+                        <oj-option  value="[[$current.data.value]]">
+                          <oj-bind-text value="[[$current.data.value]]"></oj-bind-text>
+                        </oj-option>
+                      </template>
+                    </oj-bind-for-each>
+                  </oj-radioset>
+
+        </div>
+    </div>
+   
+ 
+  <div class="oj-flex oj-divider-bottom oj-sm-padding-5x-top oj-divider-top oj-sm-12 oj-sm-margin-10x-top oj-sm-flex-items-initial oj-sm-justify-content-space-between">
+    <div class="oj-flex-item oj-sm-padding-2x-horizontal">
+        <span class="oj-typography-body-1 oj-typography-semi-bold">Current Status</span>
+    </div>
+    <div class="oj-flex-item oj-sm-padding-2x-horizontal">
+        <oj-switch value="{{status}}"></oj-switch>
+    </div>
+    
+  </div>
+
+
+ 
+<footer role="contentinfo " class="oj-web-applayout-footer oj-applayout-fixed-bottom">
+    <div class="oj-flex oj-sm-margin-5x-top oj-sm-12 oj-sm-flex-items-initial oj-sm-justify-content-space-around">
+
+        <div class="oj-flex-item ">     
+            <oj-button chroming='outlined' on-oj-action="[[goBack]]">
+                Cancel
+            </oj-button >
+        </div>
+        <div class="oj-flex-item oj-sm-padding-5x-end">
+            <oj-button class="ojet-btn-color oj-color-invert" on-oj-action="[[gotoStep4]]" chroming='outlined'>
+                Next
+            </oj-button>
+        </div>
+    
+    </div>
+    
+        </footer>
+    
+
+   
+</div>
+</div>
+
+
+    
+    

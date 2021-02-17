@@ -1,0 +1,63 @@
+/*
+    Document   : override
+    Created on : <date>
+    Author     : <author>
+    Description:
+        This is where any of your application specific styles should be included
+*/
+
+.sendOffScreen {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.flex-container {
+  padding-left:0px;
+  padding-right:0px;
+  }
+  
+.noMargin{
+  margin: 0px;
+}
+.noPadding{
+  padding: 0px;
+}
+
+#floatingBtn{
+  background-color:#28a59d;
+  border-radius: 3rem;
+  color: white !important;
+}
+.oj-progress-bar-track {
+  margin: 0;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: grey;
+}
+.oj-progress-bar-value {
+  margin: 0;
+  box-sizing: border-box;
+  height: 100%;
+  background-color:#28a59d;
+}
+
+.demo-listview-container
+{
+  height: calc(100vh - 10px);
+  min-height: 21.875rem;
+}
+.ojet-btn-color{
+  background-color:#28a59d;
+}
+#activitiesList{
+  background: #edf2f6;
+  width:95%;
+  height:500px;
+  overflow-x:hidden;
+}
+.oj-primary-color{
+  color: #28a59d;
+}

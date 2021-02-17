@@ -1,0 +1,43 @@
+{
+  "name": "show-details",
+  "version": "1.0.0",
+  "jetVersion": "^10.0.0",
+  "displayName": "A user friendly, translatable name of the component.",
+  "description": "A translatable high-level description for the component.",
+  "properties": {
+        "accountName":{
+          "type": "string",
+          "writeback": true
+        },
+        "accountStatus": {
+          "type": "string",
+          "description": "status of a account",
+          "writeback": true
+        },
+        "lastVisit": {
+          "type": "string",
+          "description": "status of a account",
+          "writeback": true
+        },
+        "nextVisit": {
+          "type": "string",
+          "description": "status of a account",
+          "writeback": true
+        },
+        "orgStatus": {
+          "type": "string",
+          "description": "status of a account",
+          "writeback": true
+        }
+
+  },
+  "methods": {
+
+  }, 
+  "events": {
+
+  }, 
+  "slots": {
+
+  }
+}
