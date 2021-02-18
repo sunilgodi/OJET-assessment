@@ -68,27 +68,6 @@
          ** on the JET website for more information on how to use this pattern.
       -->
       <header role="banner" class="oj-web-applayout-header">
-        <!--div class="oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center">
-          <div class="oj-flex-bar-middle oj-sm-align-items-baseline">
-            <span role="img" class="oj-icon demo-oracle-icon" title="Oracle Logo" alt="Oracle Logo"></span>
-            <h1 class="oj-sm-only-hide oj-web-applayout-header-title" title="Application Name"><oj-bind-text value="[[appName]]"></oj-bind-text></h1>
-          </div>
-          <div class="oj-flex-bar-end">
-           
-            <oj-toolbar>
-              <oj-menu-button id="userMenu" display="[[smScreen() ? 'icons' : 'all']]" chroming="borderless">
-                <span><oj-bind-text value="[[userLogin]]"></oj-bind-text></span>
-                <span slot="endIcon" :class="[[{'oj-icon demo-appheader-avatar': smScreen(), 'oj-component-icon oj-button-menu-dropdown-icon': !smScreen()}]]"></span>
-                <oj-menu id="menu1" slot="menu">
-                  <oj-option id="pref" value="pref">Preferences</oj-option>
-                  <oj-option id="help" value="help">Help</oj-option>
-                  <oj-option id="about" value="about">About</oj-option>
-                  <oj-option id="out" value="out">Sign Out</oj-option>
-                </oj-menu>
-              </oj-menu-button>
-            </oj-toolbar>
-          </div>
-        </div-->
         
       </header>
       <oj-module role="main" class="oj-web-applayout-max-width oj-web-applayout-content" config="[[moduleAdapter.koObservableConfig]]">
@@ -97,7 +76,8 @@
         <div class="oj-applayout-fixed-bottom">
           <!-- Navigation Bar -->
           <div id="navbar" role="navigation" class="oj-hybrid-applayout-navbar-app">
-            <oj-navigation-list class="oj-navigationlist-stack-icon-label" 
+            <oj-navigation-list class="oj-navigationlist-stack-icon-label oj-sm-padding-5x-start oj-sm-padding-2x-top"
+                                style="box-shadow: 10px 10px 12px 5px;" 
                                 data="[[navDataProvider]]"
                                 edge="top"
                                 

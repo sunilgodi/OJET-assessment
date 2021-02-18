@@ -45,7 +45,7 @@ define(
                 new AsyncRegExpValidator({
                     pattern: "^([a-zA-z0-9/\\''(),-\s]{2,255})$",
                     hint: "Enter a valid address",
-                    messageDetail: "Enter at least 10 letters",
+                    messageDetail: "Enter at least 3 characters",
                 }),
             ];
 
@@ -53,7 +53,7 @@ define(
                 new AsyncRegExpValidator({
                     pattern: "^([a-zA-z0-9/\\''(),-\s]{2,255})$",
                     hint: "Enter a valid address",
-                    messageDetail: "Enter at least 10 letters",
+                    messageDetail: "Enter at  3 least  characters",
                 }),
             ];
 

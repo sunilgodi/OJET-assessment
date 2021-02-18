@@ -43,7 +43,7 @@ define(
                 { value: "work", label: "work" },
                 { value: "mobile", label: "mobile" },
                 { value: "home", label: "home" },
-                { value: "home", label: "home" },
+                { value: "office", label: "office" },
             ];
             this.contactTypeSource = new ArrayDataProvider(this.contactTypeList, {
                 keyAttributes: "value",
@@ -155,14 +155,14 @@ define(
                                         
                                     }
                                     let json1 = JSON.parse(self.args);
-                                    console.log(json1)
+                                    
                                     let strObj = {
                                         ...json1,
                                         ...obj
                                     }
                                      strObj = JSON.stringify(strObj);
                                     
-                                    console.log(strObj);
+                                    
                                     self.router.go({ path: 'step4', params: {"DATA":strObj} })
                                 }
                             })

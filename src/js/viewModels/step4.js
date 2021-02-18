@@ -80,15 +80,18 @@ define(
                                         console.log(self.selectedSegment()+self.selectedpSegment+this.selectedsSegment);
                                         console.log(self.args);
                                         let obj = {
+                                            "ADDITIONALINFO":{
                                             "SEGMENT":self.selectedSegment(),
                                             "PSEGEMENT":self.selectedpSegment(),
                                             "SSEGMENT":self.selectedsSegment()
                                         }
+                                    }
                                         let json1 = JSON.parse(self.args)
                                         let finalObj = {
                                             ...json1,
                                             ...obj
                                         }
+                                        localStorage.setItem("ACCOUNTDET",JSON.stringify(finalObj));
                                         console.log(finalObj)
                                         self.router.go({ path: 'customers', params: { }})
                             }
