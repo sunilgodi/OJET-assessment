@@ -64,7 +64,7 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils',
 
       self.getSubHeaderModel = function(router) {
         routerObj = router;
-        console.log(router+"passed"+self.selection.state().path+"path")
+        
         return {
           stage:self.selection.state().detail.stage,
           routerObj:router,

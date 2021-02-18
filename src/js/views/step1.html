@@ -11,7 +11,7 @@
     <div class="oj-flex oj-flex-item">
         <div class="oj-sm-margin-5x-top oj-sm-11 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
             <oj-label class="oj-typography-bold" for="accountName">Name</oj-label>
-            <oj-input-text  required validators='[[nameValidator]]' length.max="5"
+            <oj-input-text  required validators='[[nameValidator]]' length.max="10"
             value="{{accountName}}" id="accountName" placeholder="Account name" oj-label-edge="inside"></oj-input-text>
         </div>
         <div class="oj-sm-11 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
@@ -45,20 +45,21 @@
     
     
     <footer role="contentinfo " class="oj-web-applayout-footer oj-applayout-fixed-bottom">
-        <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-around">
-
+        <div class="oj-flex oj-sm-margin-5x-top oj-sm-12 oj-sm-flex-items-initial oj-sm-justify-content-space-around">
+    
             <div class="oj-flex-item ">     
-                <oj-button chroming='outlined' on-oj-action="[[goBack]]">
+                <oj-button class="oj-cancel-btn" chroming='outlined' on-oj-action="[[goBack]]">
                     Cancel
                 </oj-button >
             </div>
-            <div class="oj-flex-item ojet-btn-color oj-color-invert" chroming='outlined'>
-                <oj-button on-oj-action="[[gotoStep2]]">
+            <div class="oj-flex-item oj-sm-padding-5x-end">
+                <oj-button class="ojet-btn-color oj-color-invert" on-oj-action="[[gotoStep2]]" chroming='outlined'>
                     Next
                 </oj-button>
             </div>
-    
+        
         </div>
+        
             </footer>
 
 </div>

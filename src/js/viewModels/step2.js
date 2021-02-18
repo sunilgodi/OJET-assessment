@@ -28,7 +28,7 @@ define(
             var self = this;
             self.router = params.parentRouter;
             self.args = params.params;
-            console.log(self.args)
+            
 
             self.subHeaderConfig = ko.observable({ 'view': [], 'viewModel': null });
             moduleUtils.createView({ 'viewPath': 'views/sub-header.html' }).then(function (view) {
@@ -43,42 +43,27 @@ define(
             self.loadingVal = ko.observable(0);
             self.addr1Validator = [
                 new AsyncRegExpValidator({
-                    pattern: "^([a-zA-z0-9/\\''(),-\s]{2,255})$",
-                    hint: "Enter a valid address",
-                    messageDetail: "Enter at least 3 characters",
+                    pattern: "^([a-zA-z0-9 /\\''(),-\s]{2,255})$",
+                    hint: "Enter a  address",
+                    messageDetail: "Enter at  3 least  characters and supported special char are ,-\()",
                 }),
             ];
 
             self.addr2Validator = [
                 new AsyncRegExpValidator({
-                    pattern: "^([a-zA-z0-9/\\''(),-\s]{2,255})$",
-                    hint: "Enter a valid address",
-                    messageDetail: "Enter at  3 least  characters",
+                    pattern: "^([a-zA-z0-9 /\\''(),-\s]{2,255})$",
+                    hint: "Enter a  address",
+                    messageDetail: "Enter at  3 least  characters and supported special char are ,-\()",
                 }),
             ];
 
             self.pcodeValidator = [
                 new AsyncRegExpValidator({
                     pattern: "[0-9]{6}$",
-                    hint: "Enter a valid pincode",
+                    hint: "Enter a  pincode",
                     messageDetail: "Enter a valid 6 digit code",
                 }),
             ];
-            /*self.latValidator = [
-                new AsyncRegExpValidator({
-                    pattern: "^[0-9][0-9]",
-                    hint: "Enter a valid latitiude",
-                    messageDetail: "Enter a valid latitiude",
-                }),
-            ];
-    
-            self.langValidator = [
-                new AsyncRegExpValidator({
-                    pattern: "/^-?[0-9]\d*(\.\d+)?$/",
-                    hint: "Enter a valid longitude",
-                    messageDetail: "Enter a valid longitude",
-                }),
-            ];*/
 
             self.selectedCountry = ko.observable();
             this.countryList = [
@@ -101,8 +86,8 @@ define(
             });
 
             //Latitude and longitude handlers
-            self.selectedLatitude = ko.observable("N");
-            self.selectedLongitude = ko.observable("N");
+            self.selectedLatitudeDir = ko.observable("N");
+            self.selectedLongitudeDir = ko.observable("N");
 
             self.latList = [
                 { value: "N", label: "N" },
@@ -149,7 +134,6 @@ define(
                 }, 10);
                 navigator.geolocation.getCurrentPosition(
                     function (pos) {
-                        console.log(pos)
                         self.lat(pos.coords.latitude);
                         self.lang(pos.coords.longitude);
                         $("#gpsLoading").hide();
@@ -172,11 +156,19 @@ define(
                                 ele5.validate().then((res5) => {
                                         ele6.validate().then((res6) => {
                                             ele7.validate().then((res7) => {
-                                                console.log("after 7")
+                                        if(res1 != "valid"){
+                                            ele1.focus();
+                                            return false;
+                                        }
+                                        if(res2 != "valid"){
+                                            ele2.focus();
+                                            return false;
+                                        }
+                                        if(res4 != "valid"){
+                                            ele3.focus();
+                                        }
                                     if (res1 == test && res2 == test && res3 == test && res4 == test && res5 == test && res6 == test && res7 == test) {
-                                        //valid case
-                                        console.log(self.addr1() + self.addr2() + self.currentAddrType() + self.selectedCountry() +
-                                            self.lat() + self.lang() + self.selectedState());
+                                    
                                             //LONGITUDE AND LATITUDE VLAIDATION
                                         if (isFinite(self.lang()) && Math.abs(self.lang()) <= 180) {
                                             if (isFinite(self.lat()) && Math.abs(self.lat()) <= 90) {
@@ -188,13 +180,13 @@ define(
                                                     "COUNTRY":self.selectedCountry(),
                                                     "STATE":self.selectedState(),
                                                     "PCODE":self.pcode(),
-                                                    "LATITUDE":self.lat(),
-                                                    "LONGITUDE":self.lang(),
+                                                    "LATITUDE":self.lat()+" "+self.selectedLatitudeDir(),
+                                                    "LONGITUDE":self.lang()+" "+self.selectedLongitudeDir(),
+
                                                     "CLASS":self.currentAddrType()
                                                     }
                                                 }
                                                 var strObj = JSON.stringify(obj);
-                                                console.log(strObj)
                                                 self.router.go({ path: 'step3', params: {"DATA":strObj} });
                                             }
                                         }

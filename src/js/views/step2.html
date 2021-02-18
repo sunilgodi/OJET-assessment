@@ -41,7 +41,7 @@
     
     
         <div class="oj-list-bg-color oj-sm-6 oj-sm-padding-5x-top oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
-            <span class="oj-typography-body-xl">GPS coordinates</span>
+            <span class="oj-typography-subtitle-4">GPS coordinates</span>
         </div>
        
         <div class="oj-list-bg-color oj-sm-6 oj-md-6 oj-lg-6 oj-sm-padding-5x-top oj-flex-item oj-sm-padding-2x-horizontal">
@@ -64,22 +64,22 @@
 
         <div class="oj-list-bg-color oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
             <oj-label>&nbsp;</oj-label>
-            <oj-select-single id="lat" data="[[latDirListSource]]" value="{{selectedLatitude}}">
+            <oj-select-single id="lat" data="[[latDirListSource]]" value="{{selectedLatitudeDir}}">
             </oj-select-single>
         </div>
         <div class="oj-sm-padding-5x-bottom oj-list-bg-color oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
             <oj-label class="oj-typography-bold" for="lang" >Langitude</oj-label>
             
             <oj-input-text id="lang" value="{{lang}}" 
-               length.max="6" ></oj-input-text>
+               length.max="6" required></oj-input-text>
         </div>
 
         <div class="oj-list-bg-color oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
             <oj-label>&nbsp;</oj-label>
-            <oj-select-single id="lat" data="[[langDirListSource]]" value="{{selectedLongitude}}">
+            <oj-select-single id="lat" data="[[langDirListSource]]" value="{{selectedLongitudeDir}}">
             </oj-select-single>
         </div>
-        <span class="oj-typography-body-xl oj-sm-margin-5x-top oj-sm-margin-5x-bottom">Address type</span>
+        <span class="oj-typography-subtitle-4 oj-sm-margin-5x-top oj-sm-margin-5x-bottom">Address type</span>
         <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-flex-item oj-sm-padding-2x-horizontal">
             <oj-radioset style="width: 100%;" id="radiosetBasicDemoId" label-hint="" label-edge="provided" value="{{currentAddrType}}">
                
@@ -99,20 +99,21 @@
 
     </div>
     <footer role="contentinfo " class="oj-web-applayout-footer oj-applayout-fixed-bottom">
-        <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-around">
-
+        <div class="oj-flex oj-sm-margin-5x-top oj-sm-12 oj-sm-flex-items-initial oj-sm-justify-content-space-around">
+    
             <div class="oj-flex-item ">     
-                <oj-button chroming='outlined' on-oj-action="[[goBack]]">
+                <oj-button class="oj-cancel-btn" chroming='outlined' on-oj-action="[[goBack]]">
                     Cancel
                 </oj-button >
             </div>
-            <div class="oj-flex-item ojet-btn-color oj-color-invert" chroming='outlined'>
-                <oj-button on-oj-action="[[gotoStep3]]">
+            <div class="oj-flex-item oj-sm-padding-5x-end">
+                <oj-button class="ojet-btn-color oj-color-invert" on-oj-action="[[gotoStep3]]" chroming='outlined'>
                     Next
                 </oj-button>
             </div>
-    
+        
         </div>
+        
             </footer>
     </div>
 </div>

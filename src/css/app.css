@@ -53,6 +53,7 @@
 }
 .ojet-btn-color{
   background-color:var(--primary-color);
+  width: 10rem;
 }
 #activitiesList{
   background: #edf2f6;
@@ -76,4 +77,8 @@
   width: 100%;
   border-radius: 3%;
   height: 1000px;
+}
+
+.oj-cancel-btn{
+  width: 10rem;
 }

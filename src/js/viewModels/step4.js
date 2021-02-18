@@ -10,7 +10,6 @@ define(
         "ojs/ojanimation",
         "jquery",
         "ojs/ojasyncvalidator-regexp",
-        //"subHeader",
         "ojs/ojbutton",
         "ojs/ojpopup",
         "ojs/ojradioset",
@@ -77,8 +76,6 @@ define(
                         sSegment.validate().then((res3)=>{
                             if(res1 == "valid" && res2 == "valid" && res3 == "valid"){
                                         // save to local storage
-                                        console.log(self.selectedSegment()+self.selectedpSegment+this.selectedsSegment);
-                                        console.log(self.args);
                                         let obj = {
                                             "ADDITIONALINFO":{
                                             "SEGMENT":self.selectedSegment(),

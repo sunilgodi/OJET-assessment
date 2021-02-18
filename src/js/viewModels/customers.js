@@ -68,8 +68,8 @@ define(
           "5": "May", "6": "June", "7": "July", "8": "Aug", "9": "Sept",
           "10": "Oct", "11": "Nov", "12": "Dec"
         };
-        let lday, lmonth, lyear, lflag;
-        let nday, nmonth, nyear, nflag;
+        let lday, lmonth, lyear;
+        let nday, nmonth, nyear;
         if (LastVisitVal == null) {
           LastVisitVal = 'NA';
         } else {
@@ -77,7 +77,6 @@ define(
           lday = LastVisitVal.getDate();
           lmonth = months[LastVisitVal.getMonth() + 1];
           lyear = LastVisitVal.getFullYear();
-          //LastVisitVal = day+","+month+","+year;
         }
         var NextVisitVal = response.NextVisit;
         if (NextVisitVal == null) {
@@ -138,7 +137,7 @@ define(
             },
           },
         });
-        console.log(ret);
+        
         this.filteredCollection.reset(ret);
         this.activityDataProvider(this.filteredDataProvider);
       };
@@ -233,7 +232,7 @@ define(
             },
           },
         });
-        console.log(ret);
+        
         this.filteredCollection.reset(ret);
         self.activityDataProvider(this.filteredDataProvider);
 
@@ -259,40 +258,7 @@ define(
 
       self.addAccounts = function () {
 
-        /*       var model123 =  self.myActivityCol.add(
-                 
-                {
-                  "SyncLocalId": 500,
-                  "PartyNumber": "home",
-                  "name": "home",
-                  "SalesProfileStatus": "ACTIVE",
-                  "OrganizationDEO_Status_c": "CANDIDATE",
-                  "NextVisit": "2021-10-21T13:46:07+00:00",
-                  "LastVisit": "2021-01-01T13:46:07+00:00"
-                },
-                  {
-                    merge:true,
-                    deferred:true,
-                    at:1,
-                    "SyncLocalId": 500,
-                    "PartyNumber": "home",
-                    "OrganizationName": "home",
-                    "SalesProfileStatus": "ACTIVE",
-                    "OrganizationDEO_Status_c": "CANDIDATE",
-                    "NextVisit": "2021-10-21T13:46:07+00:00",
-                    "LastVisit": "2021-01-01T13:46:07+00:00"
-                  }
-                )
-                console.log(model123)
-                model123.then((res)=>{
-                    console.log(res)
-                })
-      */
-        /* var res = self.myActivityCol.get(self.activityModel,{});
-         console.log(res)
-         res.then((res)=>{
-           console.log(res)
-         })*/
+       
         self.router.go({ path: 'step1', params: {} });
       }
       self.showDetails = function (accountName, lmonth, lday, lyear, nmonth, nday, nyear, accountStatus, orgStatus) {

@@ -1,11 +1,4 @@
 
-/*
- * Your customer ViewModel code goes here
- */
-/*define(['knockout', 'appController', 
-'ojs/ojmodule-element-utils', 'accUtils','ojs/ojmodel','ojs/ojarraydataprovider',
-'ojs/ojcollectiondataprovider',"ojs/ojlistdataproviderview",
- "ojs/ojtable", "ojs/ojinputtext"],*/
 define(
     ['accUtils',
         'knockout',
@@ -77,9 +70,9 @@ define(
             self.accountName = ko.observable();
             self.nameValidator = [
                 new AsyncRegExpValidator({
-                    pattern: "[a-zA-Z]{5,}",
+                    pattern: "[a-zA-Z s]{5,}",
                     hint: "enter at least 5 letters",
-                    messageDetail: "Enter at least 5 letter name",
+                    messageDetail: "Enter at least 5 letters and only letters are allowed",
                 }),
 
 
@@ -100,12 +93,16 @@ define(
                 let type        = document.getElementById("type");
 
                 accountName.validate().then((res1) => {
+                    if(res1 != "valid")
+                    {
+                            accountName.focus();
+                    }     
                     channel.validate().then((res2)=>{
                         type.validate().then((res2)=>{
                     if (res1 == "valid" && res2 == "valid" && res2 == "valid") {
                         //call step 2 of flow     
                         var basicObj =  {
-                            "ACCOUNTNAME" :self.accountName(),
+                        "ACCOUNTNAME" :self.accountName(),
                         "ACCOUNTTYPE":self.selectedType(),
                         "ACCOUNTCHANNEL":self.selectedChannel(),
                         "ACCOUNTCLASS":self.currentClass()

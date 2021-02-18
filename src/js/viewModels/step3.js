@@ -29,8 +29,6 @@ define(
             var self = this;
             self.router = params.parentRouter;
             self.args   = params.params.DATA;
-            console.log(self.args);
-            console.log(self.router);
 
             self.subHeaderConfig = ko.observable({ 'view': [], 'viewModel': null });
             moduleUtils.createView({ 'viewPath': 'views/sub-header.html' }).then(function (view) {
@@ -137,6 +135,22 @@ define(
                             role.validate().then((res3) =>{
                                 teleNumber.validate().then((res4) => {
                                     email.validate().then((res5) => {
+                                        if(res1 != "valid"){
+                                            fname.focus();
+                                            return false;
+                                        }
+                                        if(res2 != "valid"){
+                                            lname.focus();
+                                            return false;
+                                        }
+                                        if(res4 != "valid"){
+                                            teleNumber.focus();
+                                            return false;
+                                        }
+                                        if(res5 != "valid"){
+                                            email.focus();
+                                            return false;
+                                        }
                                 if (res1 == "valid" && res2 == "valid" && res3 == "valid" && res4 == "valid" && res5 == "valid") {
                                     let obj = {
                                         
