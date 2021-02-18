@@ -46,21 +46,19 @@ define(
       })
       self.currentStatus = ko.observable("All");
       this.statusOptions = [
-        { id: "all", value: "All", status: "All", color: 'black' },
-        { id: "active", value: "ACTIVE", status: "ACTIVE", color: 'green' },
-        { id: "inactive", value: "INACTIVE", status: "INACTIVE", color: 'red' },
-        { id: "inprogress", value: "INPROGRESS", status: "INPROGRESS", color: 'yellow' }
+       
+        { id: "active", value: "ACTIVE", status: "ACTIVE"},
+        { id: "inactive", value: "INACTIVE", status: "INACTIVE"},
+        { id: "Candidate", value: "CANDIDATE", status: "CANDIDATE"}
 
       ];
-      this.color = "blue;"
       self.handleValueChanged = () => {
         this.filter(document.getElementById("filter").rawValue);
       };
       self.length = ko.observable(0);
       var ctr = 0;
       self.filter = ko.observable();
-      self.baseDeptArray = ko.observableArray();
-      var myObservableArray = ko.observableArray();
+      
 
       var RESTurl = "http://demo6785834.mockable.io/accounts";
       function parseItem(response) {
@@ -74,12 +72,9 @@ define(
         let nday, nmonth, nyear, nflag;
         if (LastVisitVal == null) {
           LastVisitVal = 'NA';
-          lflag = false;
         } else {
           LastVisitVal = new Date(LastVisitVal);
-          lflag = true;
-
-          lday = LastVisitVal.getDay();
+          lday = LastVisitVal.getDate();
           lmonth = months[LastVisitVal.getMonth() + 1];
           lyear = LastVisitVal.getFullYear();
           //LastVisitVal = day+","+month+","+year;
@@ -87,11 +82,9 @@ define(
         var NextVisitVal = response.NextVisit;
         if (NextVisitVal == null) {
           NextVisitVal = 'NA';
-          nflag = false;
         }
         else {
-          nflag = true;
-          nday = LastVisitVal.getDay();
+          nday = LastVisitVal.getDate();
           nmonth = months[LastVisitVal.getMonth() + 1];
           nyear = LastVisitVal.getFullYear();
         }
@@ -106,8 +99,6 @@ define(
           nday: nday,
           nmonth: nmonth,
           nyear: nyear,
-          nflag: nflag,
-          lflag: lflag,
           LastVisit: LastVisitVal,
           NextVisit: NextVisitVal,
           orgStatus: response.OrganizationDEO_Status_c,
@@ -129,14 +120,7 @@ define(
       self.myActivityCol = new activityCollection();
       self.activityDataProvider = ko.observableArray();
       self.activityDataProvider(new CollectionDataProvider(self.myActivityCol));
-
-      console.log(ctr)
-
       this.filter = ko.observable();
-      console.log(this.baseDeptArray)
-
-
-
       this.handleValueChanged = (event) => {
         if (event.detail.value === null || event.detail.value === undefined || event.detail.value === "") {
           this.activityDataProvider(new CollectionDataProvider(this.myActivityCol));
@@ -214,13 +198,15 @@ define(
 
 
       self.openListener = function () {
-        popup = document.getElementById("popup1");
+        popup = document.getElementById("filterPopup");
         popup.open("#btnGo");
       }
       self.clearFilters = function () {
         self.currentStatus("All");
+        $("#filterStatus").removeClass("oj-sm-show").addClass("oj-sm-hide");
         popup.close();
-        self.activityDataProvider(new CollectionDataProvider(self.myActivityCol))
+        self.activityDataProvider(new CollectionDataProvider(self.myActivityCol));
+
       }
 
       self.closeFilter = function(){
@@ -252,11 +238,12 @@ define(
         self.activityDataProvider(this.filteredDataProvider);
 
         popup.close();
+        $("#filterStatus").removeClass("oj-sm-hide").addClass("oj-sm-show");
       }
 
       self.startAnimationListener = (event) => {
         let ui = event.detail;
-        if (event.target.id !== "popup1") {
+        if (event.target.id !== "filterPopup") {
           return;
         }
         if (ui.action === "open") {
@@ -314,14 +301,14 @@ define(
           LastVisit = "NA";
         }
         else {
-          LastVisit = lday + "," + lmonth + "," + lyear;
+          LastVisit = lday + "-" + lmonth + "-" + lyear;
         }
         console.log(LastVisit)
         if (nday === undefined) {
           NextVisit = "NA";
         }
         else {
-          NextVisit = nday + "," + nmonth + "," + nyear;
+          NextVisit = nday + "-" + nmonth + "-" + nyear;
         }
 
         self.router.go({

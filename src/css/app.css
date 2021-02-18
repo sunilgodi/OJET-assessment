@@ -5,7 +5,9 @@
     Description:
         This is where any of your application specific styles should be included
 */
-
+:root {
+  --primary-color: #28a59d;
+}
 .sendOffScreen {
   position: absolute;
   left: -10000px;
@@ -27,7 +29,7 @@
 }
 
 #floatingBtn{
-  background-color:#28a59d;
+  background-color:var(--primary-color);
   border-radius: 3rem;
   color: white !important;
 }
@@ -41,7 +43,7 @@
   margin: 0;
   box-sizing: border-box;
   height: 100%;
-  background-color:#28a59d;
+  background-color:var(--primary-color);
 }
 
 .demo-listview-container
@@ -50,7 +52,7 @@
   min-height: 21.875rem;
 }
 .ojet-btn-color{
-  background-color:#28a59d;
+  background-color:var(--primary-color);
 }
 #activitiesList{
   background: #edf2f6;
@@ -59,5 +61,19 @@
   overflow-x:hidden;
 }
 .oj-primary-color{
+  color: var(--primary-color);
+}
+.oj-selected {
+  color: var(--primary-color);
+}
+.oj-radioset .oj-selected .oj-radiocheckbox-icon {
   color: #28a59d;
+}
+.oj-list-bg-color{
+  background: #edf2f6; 
+}
+#filterPopup{
+  width: 100%;
+  border-radius: 3%;
+  height: 1000px;
 }

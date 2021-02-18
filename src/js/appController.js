@@ -35,7 +35,7 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils',
       // Media queries for repsonsive layouts
       const smQuery = ResponsiveUtils.getFrameworkQuery(ResponsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY);
       this.smScreen = ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
-      var myObservableArray = ko.observableArray();
+    
       let navData = [
         { path: '', redirect: 'customers' },
         { path: 'step1', detail: { label: 'Add Account', iconClass: '' ,header:'Add account',stage:1} },

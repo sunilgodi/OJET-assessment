@@ -16,10 +16,13 @@ define(
      CollectionDataProvider,ListDataProviderView) {*/
     function (accUtils, ko, Model, CollectionDataProvider, app, moduleUtils) {
       function accountDetails(args) {
+        $(".oj-web-applayout-footer").hide();
+        $(".oj-hybrid-applayout-navbar-app").hide();
         self.headerConfig = ko.observable({ 'view': [], 'viewModel': null });
         moduleUtils.createView({ 'viewPath': 'views/header.html' }).then(function (view) {
           self.headerConfig({ 'view': view, 'viewModel': app.getHeaderModel() })
         });
+        
         self.router = args.parentRouter;
         self.rxdargs = args.params;
         console.log(rxdargs)

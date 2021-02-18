@@ -1,17 +1,41 @@
 define(
   ['accUtils',
-   'knockout',
-   'ojs/ojmodel',
-   'ojs/ojcollectiondataprovider',
-   'ojs/ojlabel',
-   'ojs/ojchart',
-   'ojs/ojlistview',
-   'ojs/ojavatar'
+    'knockout',
+    'ojs/ojmodel',
+    'ojs/ojcollectiondataprovider',
+    'appController',
+    'ojs/ojmodule-element-utils',
+    'ojs/ojarraydataprovider',
+    "ojs/ojlistdataproviderview",
+    "ojs/ojanimation",
+    "show-details/loader",
+    'ojs/ojlabel',
+    "ojs/ojtable", "ojs/ojinputtext",
+    'ojs/ojlistview',
+    'ojs/ojavatar',
+    "ojs/ojpopup",
+    "ojs/ojradioset",
+    "ojs/ojbutton"
   ],
-  function (accUtils, ko, Model, CollectionDataProvider) {
+
+  function (accUtils, ko, Model, CollectionDataProvider, app, moduleUtils,
+    ArrayDataProvider, ListDataProviderView, AnimationUtils) {
 
     function DashboardViewModel() {
       
+      var model = Model.Model.extend({
+          defaults : {
+            "name":"name123",
+            "contact":"jhj"
+          }
+      });
+      console.log(model);
+
+      var collection = new Model.Collection.extend({
+        model: model,
+      });
+
+      console.log(collection)
       /**
        * Optional ViewModel method invoked after the View is disconnected from the DOM.
        */

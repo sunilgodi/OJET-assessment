@@ -46,7 +46,7 @@
 
         <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
             <oj-label class="oj-typography-bold" for="contactRole">Select contact role</oj-label>
-            <oj-select-single id="contactRole" required data="[[contactRoleSource]]" value="{{selectedcontactRole}}">
+            <oj-select-single id="contactRole" label-hint="select role" required data="[[contactRoleSource]]" value="{{selectedcontactRole}}">
             </oj-select-single>
         </div>
         <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
@@ -71,17 +71,19 @@
         </div>
         <span class="oj-typography-subtitle-4">Preferred method of contact</span>
 
-        <div class="oj-sm-11 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
-            <div class="oj-sm-11 oj-md-11 oj-lg-11 oj-flex-item oj-sm-padding-2x-horizontal oj-de">
-                <oj-radioset id="radiosetBasicDemoId" label-hint="" label-edge="provided" value="{{preferredCont}}">
+        <div class="oj-sm-12 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+            <div class="oj-sm-12 oj-md-11 oj-lg-11 oj-flex-item oj-sm-padding-2x-horizontal oj-de">
+                <oj-radioset style="width: 100%;" id="radiosetBasicDemoId" label-hint="" label-edge="provided" value="{{preferredCont}}">
                    
                     <oj-bind-for-each data="[[preferredContOptions]]">
                       <template >
+                        <div class="oj-divider-top oj-sm-margin-1x-vertical"></div>
                         <oj-option  value="[[$current.data.value]]">
                           <oj-bind-text value="[[$current.data.value]]"></oj-bind-text>
                         </oj-option>
                       </template>
                     </oj-bind-for-each>
+                    <div class="oj-divider-bottom oj-sm-margin-1x-vertical"></div>
                   </oj-radioset>
 
         </div>

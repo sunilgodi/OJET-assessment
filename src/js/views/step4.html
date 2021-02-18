@@ -11,19 +11,19 @@
 <div class="bodyConten" style="margin-top: 120px;">
     <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
         <oj-label class="oj-typography-bold" for="segment">Trade segment</oj-label>
-        <oj-select-single id="segment"  required data="[[segmentSource]]" value="{{selectedSegment}}">
+        <oj-select-single id="segment"  label-hint="select item" required data="[[segmentSource]]" value="{{selectedSegment}}">
         </oj-select-single>
     </div>
 
     <div class="oj-sm-margin-5x-top oj-sm-11 oj-md-11 oj-lg-11 oj-flex-item oj-sm-padding-2x-horizontal">
         <oj-label class="oj-typography-bold" for="pSegment">Primary consumer segment</oj-label>
-        <oj-select-single id="pSegment" required data="[[pSegmentSource]]" value="{{selectedpSegment}}">
+        <oj-select-single id="pSegment" label-hint="select item" required data="[[pSegmentSource]]" value="{{selectedpSegment}}">
         </oj-select-single>
     </div>
 
     <div class="oj-sm-margin-5x-top oj-sm-11 oj-md-11 oj-lg-11 oj-flex-item oj-sm-padding-2x-horizontal">
         <oj-label class="oj-typography-bold" for="sSegment">Secondary consumer segment</oj-label>
-        <oj-select-single id="sSegment" required data="[[sSegmentSource]]" value="{{selectedsSegment}}">
+        <oj-select-single id="sSegment" label-hint="select item" required data="[[sSegmentSource]]" value="{{selectedsSegment}}">
         </oj-select-single>
     </div>
 
@@ -38,7 +38,7 @@
                     </oj-button >
                 </div>
                 <div class="oj-flex-item oj-sm-padding-5x-end">
-                    <oj-button on-oj-action="[[]]" chroming='outlined' class="ojet-btn-color oj-color-invert">
+                    <oj-button on-oj-action="[[saveAccount]]" chroming='outlined' class="ojet-btn-color oj-color-invert">
                         Save
                     </oj-button>
                 </div>
