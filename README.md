@@ -16,4 +16,4 @@ OJET Components which are used are
  
  corodva plugins which are used 
   - contact plugin for accesing contacts
-  - locaiton plugin for latitude and longitiude
+  - locaiton plugin for latitude and langitiude
