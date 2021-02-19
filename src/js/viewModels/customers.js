@@ -45,13 +45,7 @@ define(
         self.headerConfig({ 'view': view, 'viewModel': app.getHeaderModel() })
       })
       self.currentStatus = ko.observable("All");
-      this.statusOptions = [
-       
-        { id: "active", value: "ACTIVE", status: "ACTIVE"},
-        { id: "inactive", value: "INACTIVE", status: "INACTIVE"},
-        { id: "Candidate", value: "CANDIDATE", status: "CANDIDATE"}
-
-      ];
+      
       self.handleValueChanged = () => {
         this.filter(document.getElementById("filter").rawValue);
       };
@@ -60,7 +54,7 @@ define(
       self.filter = ko.observable();
       
 
-      var RESTurl = "http://demo6785834.mockable.io/accounts";
+     
       function parseItem(response) {
         var LastVisitVal = response.LastVisit;
         let months = {

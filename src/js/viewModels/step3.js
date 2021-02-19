@@ -37,23 +37,14 @@ define(
 
 
             self.selectedcontType = ko.observable("home");
-            this.contactTypeList = [
-                { value: "work", label: "work" },
-                { value: "mobile", label: "mobile" },
-                { value: "home", label: "home" },
-                { value: "office", label: "office" },
-            ];
-            this.contactTypeSource = new ArrayDataProvider(this.contactTypeList, {
+            
+            this.contactTypeSource = new ArrayDataProvider(contactTypeList, {
                 keyAttributes: "value",
             });
 
             self.selectedPrefix = ko.observable("MR");
-            this.prefixList = [
-                { value: "MR", label: "MR" },
-                { value: "MRs", label: "MRs" },
-
-            ];
-            this.prefixSource = new ArrayDataProvider(this.prefixList, {
+            
+            this.prefixSource = new ArrayDataProvider(prefixList, {
                 keyAttributes: "value",
             });
 
@@ -62,38 +53,30 @@ define(
 
             self.fnameValidator = [
                 new AsyncRegExpValidator({
-                    pattern: "[a-zA-Z\s ]{3,10}",
+                    pattern: "[a-zA-Z\s ]{1,10}",
                     hint: "Enter a first name",
-                    messageDetail: "Enter a valid name",
+                    messageDetail: "Enter a valid first name , only characters are allowed",
                 }),
             ];
             self.lnameValidator = [
                 new AsyncRegExpValidator({
-                    pattern: "[a-zA-Z\s ]{3,10}",
+                    pattern: "[a-zA-Z\s ]{1,10}",
                     hint: "Enter a last  name",
-                    messageDetail: "Enter a valid name",
+                    messageDetail: "Enter a valid last name , only characters are allowed",
                 }),
             ];
 
             self.selectedcontactRole = ko.observable();
 
-            this.contactRoleList = [
-                { value: "Role1", label: "Role 1" },
-                { value: "Role2", label: "Role 2" },
-
-            ];
-            this.contactRoleSource = new ArrayDataProvider(this.contactRoleList, {
+           
+            this.contactRoleSource = new ArrayDataProvider(contactRoleList, {
                 keyAttributes: "value",
             });
 
             self.selectedCC = ko.observable("+91")
 
-            this.ccList = [
-                { value: "+91", label: "+91" },
-                { value: "+44", label: "+44" },
-
-            ];
-            this.ccSource = new ArrayDataProvider(this.ccList, {
+            
+            this.ccSource = new ArrayDataProvider(ccList, {
                 keyAttributes: "value",
             });
 

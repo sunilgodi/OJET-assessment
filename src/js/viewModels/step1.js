@@ -34,37 +34,19 @@ define(
             self.router = params.parentRouter;
             self.selectedChannel = ko.observable();
             self.selectedType = ko.observable();
-            this.channelList = [
-                
-                { value: "channel 1", label: "channel 1" },
-                { value: "channel 2", label: "channel 2" },
-                { value: "channel 3", label: "channel 3" },
-                { value: "channel 4", label: "channel 4" },
-                { value: "channel 5", label: "channel 5" },
-            ];
-            this.channelListSource = new ArrayDataProvider(this.channelList, {
+            
+            this.channelListSource = new ArrayDataProvider(channelList, {
                 keyAttributes: "value",
             });
 
-            self.typeList = [
-               
-                { value: "type 1", label: "type 1" },
-                { value: "type 1", label: "type 2" },
-                { value: "type 1", label: "type 3" },
-                { value: "type 1", label: "type 4" },
-                { value: "type 1", label: "type 5" },
-            ];
-            self.typeListSource = new ArrayDataProvider(self.typeList, {
+            
+            self.typeListSource = new ArrayDataProvider(typeList, {
                 keyAttributes: "value",
             });
 
 
             self.currentClass = ko.observable("Wholesale");
-            self.classOptions = [
-                { id: "wholesale", value: "Wholesale" },
-                { id: "retail-wholesale", value: "Retail - Wholesale" },
-                { id: "retail", value: "Retail" }
-            ];
+        
 
             /*------------------validation--------------------------*/
             self.accountName = ko.observable();

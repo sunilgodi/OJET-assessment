@@ -34,32 +34,20 @@ define(
             })
             self.selectedSegment = ko.observable();
             self.selectedpSegment = ko.observable();
-            this.segmentList = [
-                { value: "SEG1", label: "SEG1" },
-                { value: "SEG2", label: "SEG1" },
-                { value: "SEG3", label: "SEG1" },
-            ];
-            this.segmentSource = new ArrayDataProvider(this.segmentList, {
+           
+            this.segmentSource = new ArrayDataProvider(segmentList, {
                 keyAttributes: "value",
             });
 
             self.selectedsSegment = ko.observable();
-            this.pSegmentList = [
-                { value: "PS1", label: "PS1" },
-                { value: "PS2", label: "PS2" },
-                { value: "PS3", label: "PS3" },
-            ];
-            this.pSegmentSource = new ArrayDataProvider(this.pSegmentList, {
+            
+            this.pSegmentSource = new ArrayDataProvider(pSegmentList, {
                 keyAttributes: "value",
             });
 
             self.selectedsSegment = ko.observable();
-            this.sSegmentList = [
-                { value: "SS1", label: "SS1" },
-                { value: "SS2", label: "SS2" },
-                { value: "SS3", label: "SS3" },
-            ];
-            this.sSegmentSource = new ArrayDataProvider(this.sSegmentList, {
+           
+            this.sSegmentSource = new ArrayDataProvider(sSegmentList, {
                 keyAttributes: "value",
             });
             

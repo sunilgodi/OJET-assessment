@@ -66,22 +66,14 @@ define(
             ];
 
             self.selectedCountry = ko.observable();
-            this.countryList = [
-                { value: "INDIA", label: "INDIA" },
-                { value: "SPAIN", label: "SPAIN" },
-                { value: "FRANCE", label: "FRANCE" },
-            ];
-            this.countryListSource = new ArrayDataProvider(this.countryList, {
+            
+            this.countryListSource = new ArrayDataProvider(countryList, {
                 keyAttributes: "value",
             });
 
             self.selectedState = ko.observable();
-            this.stateList = [
-                { value: "Karnataka", label: "Karnataka" },
-                { value: "Delhi", label: "Delhi" },
-                { value: "Mumbai", label: "Mumbai" },
-            ];
-            this.stateListSource = new ArrayDataProvider(this.stateList, {
+            
+            this.stateListSource = new ArrayDataProvider(stateList, {
                 keyAttributes: "value",
             });
 
@@ -89,34 +81,18 @@ define(
             self.selectedLatitudeDir = ko.observable("N");
             self.selectedLongitudeDir = ko.observable("N");
 
-            self.latList = [
-                { value: "N", label: "N" },
-                { value: "W", label: "W" },
-                { value: "E", label: "E" },
-                { value: "S", label: "S" }
-            ];
-            this.latDirListSource = new ArrayDataProvider(this.latList, {
+          
+            this.latDirListSource = new ArrayDataProvider(latList, {
                 keyAttributes: "value",
             });
 
-            self.langList = [
-                { value: "N", label: "N" },
-                { value: "W", label: "W" },
-                { value: "E", label: "E" },
-                { value: "S", label: "S" }
-            ];
-            this.langDirListSource = new ArrayDataProvider(this.langList, {
+            
+            this.langDirListSource = new ArrayDataProvider(langList, {
                 keyAttributes: "value",
             });
 
             self.currentAddrType = ko.observable("General");
-            self.addrOptions = [
-                { id: "General", value: "General" },
-                { id: "shipTo", value: "Ship to" },
-                { id: "billTo", value: "Bill to" },
-
-
-            ];
+            
 
             self.loadingVal.subscribe((newValue) => {
                 if (newValue === 100) {
